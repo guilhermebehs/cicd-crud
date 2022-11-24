@@ -7,7 +7,7 @@
      }
 
      create(book){
-        const id = new Date().getTime();
+        const id = String(new Date().getTime());
         book["id"] = id
         this._db.push(book)
         return id;

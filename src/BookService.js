@@ -1,3 +1,5 @@
+const BusinessError = require('./BusinessError')
+
 class BookService {
     
     _bookRepository
@@ -8,11 +10,11 @@ class BookService {
 
     create(book){
         if(!book)
-          throw new Error("Book cannot be null")
+          throw new BusinessError("Book cannot be null")
         if(!book.name)
-          throw new Error("Book name cannot be null") 
+          throw new BusinessError("Book name cannot be null") 
         if(!book.year)
-          throw new Error("Book year cannot be null")
+          throw new BusinessError("Book year cannot be null")
         
         return this.bookRepository.create(book)     
     }
@@ -23,7 +25,7 @@ class BookService {
 
     delete(id){
         if(!id)
-          throw new Error("Id cannot be null")
+          throw new BusinessError("Id cannot be null")
         
         this.bookRepository.delete(id);
     }
