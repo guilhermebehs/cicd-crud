@@ -8,7 +8,7 @@ class BookService {
         this.bookRepository = bookRepository;
     }
 
-    create(book){
+    create(book = {}){
         if(!book)
           throw new BusinessError("Book cannot be null")
         if(!book.name)
@@ -23,10 +23,7 @@ class BookService {
         return this.bookRepository.list();
     }
 
-    delete(id){
-        if(!id)
-          throw new BusinessError("Id cannot be null")
-        
+    delete(id = '-1'){     
         this.bookRepository.delete(id);
     }
 }

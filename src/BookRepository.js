@@ -18,7 +18,7 @@
      }
 
      delete(id){
-        this._db = this._db.filter(book => book.id !== id)
+        this._db = this._db.filter(book => book.id != id)
      }
 
 

@@ -24,7 +24,7 @@ describe('BookRepository',()=>{
     describe('delete()', ()=>{
 
         test('should list all books correctly',()=>{
-            bookRepository._db.push({id:1, 'name':'Some book', 'year': '2022'})
+            bookRepository._db.push({id:'1', 'name':'Some book', 'year': '2022'})
 
             expect(bookRepository.delete(1)).toBeUndefined()
             expect(bookRepository._db.length).toBe(0)

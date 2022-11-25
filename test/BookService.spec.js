@@ -22,10 +22,6 @@ describe('BookService',()=>{
             expect(bookRepositoryCreateSpy).toHaveBeenCalledTimes(1)
         
         })
-        test('should throw when book is undefined',()=>{
-            expect(bookService.create).toThrow("Book cannot be null")
-            expect(bookRepositoryCreateSpy).toHaveBeenCalledTimes(0)
-        })
 
         test('should throw when book name is undefined',()=>{
             expect(()=>bookService.create({'year': '2022'})).toThrow("Book name cannot be null")
@@ -50,10 +46,6 @@ describe('BookService',()=>{
         test('should delete book correctly',()=>{
             expect(bookService.delete(1)).toBeUndefined()
             expect(bookRepositoryDeleteSpy).toHaveBeenCalledTimes(1)
-        })
-        test('should throw when id is undefined',()=>{
-            expect(bookService.delete).toThrow()
-            expect(bookRepositoryDeleteSpy).toHaveBeenCalledTimes(0)
         })
     })
 })
