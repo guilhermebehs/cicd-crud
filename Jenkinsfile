@@ -27,9 +27,11 @@ pipeline {
             }
          
            stage('Deploy'){
-              sshagent (credentials: ['pk']){
-                    sh "ssh -oStrictHostKeyChecking=no ec2-user@ec2-3-143-243-68.us-east-2.compute.amazonaws.com 'bash deploy-new-container.sh ${env.BUILD_NUMBER}'"
-                 }
+              steps{
+                  sshagent (credentials: ['pk']){
+                        sh "ssh -oStrictHostKeyChecking=no ec2-user@ec2-3-143-243-68.us-east-2.compute.amazonaws.com 'bash deploy-new-container.sh ${env.BUILD_NUMBER}'"
+                     }
+              }
            } 
            
     }
